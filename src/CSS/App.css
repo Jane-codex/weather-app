@@ -1,0 +1,457 @@
+/* =====================
+   1️⃣ Global Reset & Typography
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom, #e0f7fa, #f5f7fa);
+  color: #333;
+  line-height: 1.5;
+}
+
+/* =====================
+   2️⃣ Dashboard Layout
+===================== */
+.dashboard {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;      
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Responsive dashboard */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1rem;
+    margin: 1rem;
+  }
+}
+
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap; 
+}
+
+.search-bar input {
+  flex: 1 1 200px; 
+  padding: 0.6rem 0.85rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 6px rgba(0,188,212,0.4);
+  outline: none;
+}
+
+.search-bar button {
+  flex: 0 0 auto; 
+  background: #00bcd4;
+  border: none;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.search-bar button:hover {
+  background: #0097a7;
+}
+
+.search-bar button:active {
+  transform: scale(0.95);
+}
+
+/* Mobile adjustment */
+@media (max-width: 480px) {
+  .search-bar input,
+  .search-bar button {
+    flex: 1 1 100%; 
+  }
+}
+
+/* =====================
+   4️⃣ Current Weather
+===================== */
+.current-weather {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.current-weather img {
+  width: 110px;
+  margin-bottom: 0.5rem;
+}
+
+.city-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00796b;
+  margin-bottom: 0.3rem;
+}
+
+.temp-main {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1e88e5;
+  margin-bottom: 0.5rem;
+}
+
+.degree-symbol {
+  font-size: 1.3rem;
+  vertical-align: super;
+}
+
+.weather-desc {
+  font-size: 1.1rem;
+  color: #555;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   5️⃣ Stats Grid
+===================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  background: linear-gradient(to top right, #e0f7fa, #ffffff);
+  padding: 15px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+}
+
+.stat-card .label {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.stat-card .value {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media(max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Suggestion text */
+.suggestion {
+  margin-top: 20px;
+  font-style: italic;
+  font-size: 0.98rem;
+  color: #722929;
+}
+
+/* =====================
+   Forecast Grid - Centered & Clean
+===================== */
+.forecast-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1.5rem 0;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 16px;
+  max-width: 800px; 
+  width: 100%;
+  justify-items: center; 
+}
+
+.forecast-grid .card {
+  background: linear-gradient(to top, #e0f7fa, #ffffff);
+  padding: 1.1rem;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%; 
+  max-width: 150px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.forecast-grid .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-grid img {
+  width: 55px;
+  height: 55px;
+  margin: 0.4rem 0;
+}
+
+.forecast-grid .date {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.forecast-grid .weather-desc {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.forecast-grid .min-max {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+
+ .temp-bar {
+  height: 6px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+ 
+
+
+/* =====================
+        Map
+===================== */
+.weather-map {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 1rem;
+}
+
+/* =====================
+   Hourly Forecast Card
+===================== */
+.hourly-card {
+  background: linear-gradient(145deg,#ffffff, #9acff5);
+  padding: 1rem;
+  border-radius: 20px;
+  margin: 1rem 0;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hourly-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hourly-title {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0e3181;
+  text-align: left;
+}
+
+/* =====================
+   Hourly Icons Row
+===================== */
+.hourly-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 0.5rem;
+ /*  flex-wrap: wrap; */
+  overflow-x: auto;
+}
+
+.hourly-icon {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.hourly-icon:hover {
+  transform: translateY(-4px);
+}
+
+.hourly-icon img {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 4px;
+}
+
+/* Temperature under icons */
+.hourly-icon span {
+  font-weight: 600;
+  color: #ff9800;
+}
+
+.hourly-icons::-webkit-scrollbar {
+  display: none;
+}
+.hourly-icons {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;     
+}
+
+  /* =====================
+   Responsive: Tablet
+===================== */
+@media (max-width: 768px) {
+  .hourly-card {
+    padding: 0.8rem;
+  }
+
+  .hourly-title {
+    font-size: 1rem;
+  }
+
+  .hourly-icon img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hourly-icon {
+    font-size: 0.75rem;
+  }
+}
+
+/* =====================
+   Responsive: Mobile
+===================== */
+@media (max-width: 480px) {
+  .hourly-card {
+    padding: 0.7rem;
+  }
+
+  .hourly-title {
+    font-size: 0.95rem;
+  }
+
+  .hourly-icons {
+    gap: 0.5rem;
+  }
+
+  .hourly-icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hourly-icon {
+    font-size: 0.7rem;
+  }
+}
+
+/* =====================
+   8️⃣ Saved Locations
+===================== */
+.saved-locations {
+  padding: 0.75rem;
+  border-radius: 14px;
+  background: #e0f2f1;
+}
+
+.saved-locations h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #00796b;
+}
+
+.saved-location-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #00796b;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.location-btn:hover {
+  background: #004d40;
+}
+
+.remove-btn {
+  background: transparent;
+  color: #888;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem;
+  border-radius: 6px;
+  transition: transform 0.3s ease, opacity 0.3s ease, color 0.2s, text-shadow 0.2s;
+  opacity: 0;
+  transform: translateX(20px);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.saved-location-item:hover .remove-btn {
+  opacity: 1;
+  transform: scale(1.2);
+  pointer-events: auto;
+   text-shadow: 0 0 5px rgba(229, 57, 53, 0.7);
+ 
+
+}
+
+.remove-btn:hover {
+  transform: scale(1.1); 
+    color: #e53935; 
+     text-shadow: 0 0 8px rgba(229, 57, 53, 0.9);
+}
