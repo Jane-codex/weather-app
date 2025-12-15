@@ -51,6 +51,8 @@ const HourlyChart: React.FC<HourlyChartProps> = ({ hourly }) => {
             axisLine={false}
             tickLine={false}
             unit="°C"
+            padding={{ top: 10, bottom: 10 }}
+           tickCount={5}
           />
 
           {/* Tooltip */}
